@@ -1,10 +1,10 @@
 # Description: Funciones de lectura de archivos
 import csv
-from typing import Optional
+from typing import Optional, Iterable
 
 
 def funcion_6( file_name: str, delimitador:str, word: str ):
-    apariciones = 0
+    apariciones: int = 0
     with open( file_name, encoding = 'UTF-8' ) as file:
         for line in file:
             words = line.split( delimitador )
@@ -14,7 +14,7 @@ def funcion_6( file_name: str, delimitador:str, word: str ):
 
 
 def funcion_7( file_name: str, word: str ):
-    lines = []
+    lines: Iterable[str] = []
     with open( file_name, encoding = 'UTF-8' ) as file:
         for line in file:
             if word.lower() in line.lower(): lines.append( line )
@@ -22,37 +22,34 @@ def funcion_7( file_name: str, word: str ):
 
 
 def funcion_8( file_name: str ):
-    txt = ""
-    words = []
-    res = []
+    words: Iterable[str] = []
+    res: Iterable[str] = []
     with open( file_name, encoding = 'UTF-8' ) as file:
         for line in file:
-            line.replace( "\n", "" )
-            txt += line
-            words += line.replace( "\n", "" ).split( " " )
+            line = line.replace( "\n", "" )
+            words += line.split( " " )
     for word in words:
         count = 0
-        ls = txt.split( ' ' )
-        for l in ls:
-            if l.lower().strip() == word.lower().strip() and ( l in res ) == False:
+        for word2 in words:
+            if( word2 == word ):
                 count += 1
         if count == 1:
             res.append( word )
+            count = 0
         else:
             count = 0
-
     return res
 
 
-def longitud_promedio_lineas( file_path: str ) -> Optional[float]:
-    lines = 0
-    words = 0
+def funcion_9( file_path: str ) -> Optional[float]:
+    number_of_lines: int = 0
+    number_of_words: int = 0
     with open( file_path, mode = 'r', newline = '', encoding = 'utf-8' ) as archivo_csv:
         lector_csv = csv.reader( archivo_csv )
         # Iteramos sobre cada fila del archivo
         for line in lector_csv:
-                lines += 1
-                words += len( line )
-    print( lines, words )
-    if( lines == 0 ): return None
-    else: return words / lines
+                number_of_lines += 1
+                number_of_words += len( line )
+    print( number_of_lines, words )
+    if( number_of_lines == 0 ): return None
+    else: return number_of_words / number_of_lines

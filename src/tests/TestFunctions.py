@@ -1,4 +1,4 @@
-from funciones.funciones import funcion_1, funcion_3, funcion_2, funcion_4
+from funciones.funciones import funcion_1, funcion_3, funcion_2, funcion_4, funcion_5
 
 
 def test_funcion_1( n:int , k:int ):
@@ -46,9 +46,10 @@ test_funcion_4( 4, 2 )
 
 def test_funcion_5( a: float, error: float ):
     res = funcion_5( a, error )
-    print( f"""################################################
+    print( f"""
+################################################
 TEST DE LA FUNCIÓN 5:
-Resultado de la función 5 con a = {a} y e = {e}, f(x) = 2x^2 y f'(x) = 4x: {res}""" )
+Resultado de la función 5 con a = {a} y e = {error}, f(x) = 2x^2 y f'(x) = 4x: {res}""" )
 
 
 test_funcion_5( 3, 0.001 )

@@ -6,14 +6,14 @@ def funcion_1( n: int, k: int ):
 
 
 def funcion_2( r: int, a_1: int, k:int ):
-    res = 1
+    res: int = 1
     for i in range( 1, k + 1 ):
         res *= a_1 * r ** ( i - 1 )
     return res
 
 
 def factorial( n:int ):
-    res = 1
+    res: int = 1
     for i in range( n ):
         res *= i + 1
     return res
@@ -27,7 +27,7 @@ def funcion_3( n:int, k:int ):
 
 def funcion_4( n:int, k:int ):
 # n >= k
-    sumatorio = 0
+    sumatorio: int = 0
     for i in range( k ):
         sumatorio += ( -1 ) ** i * funcion_3( k + 1, i + 1 ) * ( k - i ) ** n
     return ( 1 / factorial( k ) ) * sumatorio
@@ -42,11 +42,8 @@ def funcion_5( a: float, error: float ):
     xn = a
     for i in range( 1000 ):
         if( abs( f( xn ) ) <= error ):
-            print( f( xn ) , i )
             break
         else:
-            print( f( xn ), der( xn ) )
             xn = xn - f( xn ) / der( xn )
-            print( xn, i )
     return xn
 
