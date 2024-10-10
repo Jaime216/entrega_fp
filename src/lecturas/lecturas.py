@@ -21,7 +21,7 @@ def funcion_7( file_name: str, word: str ):
     return lines
 
 
-def funcion_8( file_name: str ):
+def funcion_8( file_name: str ) -> Iterable[str] | str:
     words: Iterable[str] = []
     res: Iterable[str] = []
     with open( file_name, encoding = 'UTF-8' ) as file:
@@ -38,7 +38,8 @@ def funcion_8( file_name: str ):
             count = 0
         else:
             count = 0
-    return res
+    if( len( res ) == 0 ): return "No hay palabras repetidas."
+    else: return res
 
 
 def funcion_9( file_path: str ) -> Optional[float]:
@@ -50,6 +51,5 @@ def funcion_9( file_path: str ) -> Optional[float]:
         for line in lector_csv:
                 number_of_lines += 1
                 number_of_words += len( line )
-    print( number_of_lines, words )
     if( number_of_lines == 0 ): return None
     else: return number_of_words / number_of_lines

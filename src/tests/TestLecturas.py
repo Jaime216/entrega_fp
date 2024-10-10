@@ -5,7 +5,7 @@ def test_funcion_6( file_name: str, delimitador: str, word: str ):
     res = funcion_6( file_name, delimitador, word )
     print( f"""################################################
 TEST DE LA FUNCIÓN 6:
-El número de veces que aparece la palabra {word} en el fichero {file_name.strip("/")[3]} es: {res}
+El número de veces que aparece la palabra {word} en el fichero {file_name} es: {res}
 """ )
 
 
@@ -30,7 +30,7 @@ TEST DE LA FUNCIÓN 8:
 Las palabras únicas en el fichero {file_name} son: {res}""" )
 
 
-test_funcion_8( "../../resources/lin_quijote.txt" )
+test_funcion_8( "../../resources/archivo_palabras.txt" )
 
 
 def test_funcion_9( file_name: str ):
