@@ -3,7 +3,7 @@ import csv
 from typing import Optional, Iterable
 
 
-def funcion_6( file_name: str, delimitador:str, word: str ):
+def funcion_6( file_name: str, delimitador:str, word: str ) -> int:
     apariciones: int = 0
     with open( file_name, encoding = 'UTF-8' ) as file:
         for line in file:
@@ -13,7 +13,7 @@ def funcion_6( file_name: str, delimitador:str, word: str ):
     return apariciones
 
 
-def funcion_7( file_name: str, word: str ):
+def funcion_7( file_name: str, word: str ) -> Iterable[str]:
     lines: Iterable[str] = []
     with open( file_name, encoding = 'UTF-8' ) as file:
             [lines.append( line ) for line in file if word.lower() in line.lower()]
