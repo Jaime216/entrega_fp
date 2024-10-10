@@ -42,11 +42,7 @@ def funcion_4( n:int, k:int ) -> float | str:
         return "Error: n<k"
 
 
-def funcion_5( a: float, error: float ) -> float:
-
-    def f( x ):return  2 * x ** 2
-
-    def der( x ):return 4 * x
+def funcion_5( f: callable, der: callable, a: float, error: float ) -> float:
 
     xn = a
     for i in range( 100 ):

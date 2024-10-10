@@ -45,7 +45,12 @@ test_funcion_4( 4, 2 )
 
 
 def test_funcion_5( a: float, error: float ):
-    res = funcion_5( a, error )
+
+    def f( x ):return  2 * x ** 2
+
+    def der( x ):return 4 * x
+
+    res = funcion_5( f, der, a, error )
     print( f"""
 ################################################
 TEST DE LA FUNCIÓN 5:
