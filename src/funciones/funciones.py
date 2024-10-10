@@ -1,8 +1,11 @@
 def funcion_1( n: int, k: int ):
-    resultado: int = 1
-    for i in range( k ):
-        resultado *= ( n - i + 1 )
-    return resultado
+    if( n > k ):
+        resultado: int = 1
+        for i in range( k ):
+            resultado *= ( n - i + 1 )
+        return resultado
+    else:
+        return "Error: n<=k"
 
 
 def funcion_2( r: int, a_1: int, k:int ):
@@ -21,16 +24,22 @@ def factorial( n:int ):
 
 def funcion_3( n:int, k:int ):
 # n >= k
-    numero_combinatorio = factorial( n ) // ( factorial( k ) * factorial( ( n - k ) ) )
-    return numero_combinatorio
+    if( n >= k ):
+        numero_combinatorio = factorial( n ) // ( factorial( k ) * factorial( ( n - k ) ) )
+        return numero_combinatorio
+    else:
+        "Error: n<k"
 
 
 def funcion_4( n:int, k:int ):
 # n >= k
-    sumatorio: int = 0
-    for i in range( k ):
-        sumatorio += ( -1 ) ** i * funcion_3( k + 1, i + 1 ) * ( k - i ) ** n
-    return ( 1 / factorial( k ) ) * sumatorio
+    if( n >= k ):
+        sumatorio: int = 0
+        for i in range( k ):
+            sumatorio += ( -1 ) ** i * funcion_3( k + 1, i + 1 ) * ( k - i ) ** n
+        return ( 1 / factorial( k ) ) * sumatorio
+    else:
+        return "Error: n<k"
 
 
 def funcion_5( a: float, error: float ):
@@ -40,7 +49,7 @@ def funcion_5( a: float, error: float ):
     def der( x ):return 4 * x
 
     xn = a
-    for i in range( 1000 ):
+    for i in range( 100 ):
         if( abs( f( xn ) ) <= error ):
             break
         else:
