@@ -16,8 +16,7 @@ def funcion_6( file_name: str, delimitador:str, word: str ):
 def funcion_7( file_name: str, word: str ):
     lines: Iterable[str] = []
     with open( file_name, encoding = 'UTF-8' ) as file:
-        for line in file:
-            if word.lower() in line.lower(): lines.append( line )
+            [lines.append( line ) for line in file if word.lower() in line.lower()]
     return lines
 
 
