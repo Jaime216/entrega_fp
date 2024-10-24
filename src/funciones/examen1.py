@@ -39,18 +39,13 @@ def S2( n:int, k:int ):
 
 
 def palabrasMasComunes( fichero: str, n: int = 5 ) -> List[Tuple[str, int]]:
-    # Validar que n es mayor que 1
-    if n <= 1:
-        raise ValueError( "n debe ser mayor que 1" )
+    assert n > 1, "n debe ser mayor a 1"
 
-    # Leer el contenido del archivo
     with open( fichero, 'r', encoding = 'utf-8' ) as file:
-        contenido = file.read().lower()  # Convertir a minúsculas
+        contenido = file.read().lower()
 
-    # Reemplazar caracteres no alfabéticos con espacios y dividir en palabras
     palabras = ''.join( char if char.isalnum() else ' ' for char in contenido ).split()
 
-    # Contar las ocurrencias de cada palabra usando un diccionario
     contador = {}
     for palabra in palabras:
         if palabra in contador:
