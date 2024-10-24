@@ -54,7 +54,7 @@ def test_funcion_5( a: float, error: float ):
     print( f"""
 ################################################
 TEST DE LA FUNCIÓN 5:
-Resultado de la función 5 con a = {a} y e = {error}, f(x) = 2x^2 y f'(x) = 4x: {res}""" )
+Resultado de la función 5 con a = {a} y e = {error}, f(x) = {f} y f'(x) = {der}: {res}""" )
 
 
 test_funcion_5( 3, 0.001 )
