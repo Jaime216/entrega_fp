@@ -4,7 +4,7 @@ Created on 4 nov 2024
 @author: jcgon
 '''
 from abc import abstractmethod, ABC
-from typing import List, TypeVar, Generic
+from typing import List, TypeVar, Generic, Callable
 E = TypeVar( 'E' )
 
 
@@ -49,3 +49,19 @@ class Agregado_lineal( ABC, Generic[E] ):
         for _ in range( self.size ):
             deleted.append( self.remove() )
         return deleted
+
+    def contains( self, e:E ) -> bool:
+        return e in self._elements
+
+    def find( self, func: Callable[[E], bool] ) -> E | None:
+        for e in self._elements:
+            if func( e ):
+                return e
+        return None
+
+    def filter( self, func: Callable[[E], bool] ) -> List[E]:
+        res = []
+        for e in self._elements:
+            if func( e ):
+                res.append( e )
+        return res
