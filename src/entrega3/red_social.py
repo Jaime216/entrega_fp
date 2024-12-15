@@ -5,6 +5,7 @@ from datetime import date, datetime
 from typing import Dict
 
 from entrega3.grafo import Grafo
+from entrega3.recorridos import bfs
 
 
 @dataclass( frozen = True )
@@ -102,3 +103,15 @@ class Red_social( Grafo[Usuario, Relacion] ):
                 red_social.add_edge( usuario1, usuario2, relacion )
 
         return red_social
+
+
+if __name__ == '__main__':
+    raiz = './'  # Cambia esta variable si ejecutas este script desde otro directorio
+    rrss = Red_social.parse( raiz + 'resources/usuarios.txt', raiz + 'resources/relaciones.txt', es_dirigido = False )
+
+    print( "El camino más corto desde 25143909I hasta 87345530M es:" )
+    camino = bfs( rrss, rrss.usuarios_dni['25143909I'], rrss.usuarios_dni['87345530M'] )
+    g_camino = rrss.subgraph( camino )
+
+    g_camino.draw( "caminos", lambda_vertice = lambda v: f"{v.dni}", lambda_arista = lambda e: e.id )
+
