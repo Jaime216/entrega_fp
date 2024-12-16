@@ -87,6 +87,15 @@ class Grafo( Generic[V, E] ):
             predecesores = {v for v in self.adyacencias if vertice in self.adyacencias[v]}
             return predecesores
 
+    def neighbors( self, vertice: V ) -> Set[V]:
+        """
+        Devuelve los vecinos de un vértice (sucesores y predecesores).
+
+        :param vertice: Vértice del que se buscan los vecinos.
+        :return: Conjunto de vecinos.
+        """
+        return self.successors( vertice ) | self.predecessors( vertice )
+
     def edge_weight( self, origen: V, destino: V ) -> Optional[E]:
         """
         Devuelve el peso de la arista entre dos vértices.
