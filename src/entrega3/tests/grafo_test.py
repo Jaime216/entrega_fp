@@ -3,7 +3,7 @@ Created on 15 dic 2024
 
 @author: jcgon
 '''
-from entrega4.grafo import Grafo
+from entrega3.grafo import Grafo
 
 
 def test_add_vertex():
