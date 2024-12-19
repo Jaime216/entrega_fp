@@ -3,7 +3,7 @@ Created on 16 dic 2024
 
 @author: jcgon
 '''
-from entrega3.recorridos import bfs
+from entrega3.recorridos import dfs
 from entrega3.red_social import Red_social
 
 if __name__ == '__main__':
@@ -21,7 +21,7 @@ if __name__ == '__main__':
         print( "Error al crear la red social." )
 
     print( "El camino más corto desde 25143909I hasta 87345530M es:" )
-    camino = bfs( rrss, rrss.usuarios_dni['25143909I'], rrss.usuarios_dni['87345530M'] )
+    camino = dfs( rrss, rrss.usuarios_dni['25143909I'], rrss.usuarios_dni['87345530M'] )
     g_camino = rrss.subgraph( camino )
 
     g_camino.draw( "caminos", lambda_vertice = lambda v: f"{v.dni}", lambda_arista = lambda e: e.id )

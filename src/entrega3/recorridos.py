@@ -130,7 +130,7 @@ def dfs( grafo: Grafo[V, E], inicio: V, destino: V ) -> List[V]:
         if vertice not in visitados:
             visitados.add( vertice )
 
-            for vecino in reversed( vecinos ):
+            for vecino in reversed( list( vecinos ) ):
                 if vecino not in visitados:
                     pila.add( vecino )
                     predesores[vecino] = vertice

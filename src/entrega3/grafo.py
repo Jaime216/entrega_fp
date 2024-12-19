@@ -72,7 +72,7 @@ class Grafo( Generic[V, E] ):
         if vertice in self.adyacencias:
             return set( self.adyacencias[vertice].keys() )
         else:
-            return Set()
+            return set()
 
     def predecessors( self, vertice: V ) -> Set[V]:
         """
@@ -82,7 +82,7 @@ class Grafo( Generic[V, E] ):
         :return: Conjunto de predecesores.
         """
         if vertice not in self.adyacencias:
-            return False
+            return set()
         else:
             predecesores = {v for v in self.adyacencias if vertice in self.adyacencias[v]}
             return predecesores
